@@ -1,230 +1,179 @@
-# Open-Vehicle-Monitoring-System-3 (OVMS3)
-
-![OVMS3 module](docs/source/userguide/ovms-intro.jpg)
-
-
-## Introduction
-
-The OVMS is an **all open source** vehicle remote monitoring, diagnosis and control system.
-
-The system provides **live monitoring** of vehicle metrics like state of charge, temperatures, tyre pressures 
-and diagnostic fault conditions. It will **alert** you about critical conditions and events like a charge 
-abort, battery cell failure or potential theft. Depending on the vehicle integration it allows you to **take 
-control** over the charge process, climate control, tuning parameters of the engine and more. OVMS developers 
-are enthusiasts trying hard to provide as **detailed information** about the internals of a vehicle as 
-possible.
-
-While most new vehicles now include some kind of remote control system, very few allow deep insight, some will 
-not work in all regions and none will give you **control over your personal data**. The OVMS fills that gap, 
-and also enables you to add all these features to existing vehicles of any kind.
-
-The OVMS can also be used for **fleet monitoring**. It allows a fleet manager to not only track the vehicle 
-locations but also to monitor the vehicle's vitals, remotely check for fault conditions, offer services like 
-automatic preheating for users and take active control in case of abusive use. As the system is open source 
-and fully scriptable, it can easily integrate custom access and control systems.
-
-For **developers and technicians**, the OVMS includes a range of CAN tools including multiple logging 
-formats, a configurable OBD2 translator, a DBC decoder, a reverse engineering toolkit and a CANopen client. 
-The module provides SSH access and WebSocket streaming and can stream and inject CAN frames via TCP. Both the 
-module and the web frontend can be customized by plugins. The module has three builtin CAN buses and [can be 
-extended by a fourth one](https://github.com/mjuhanne/OVMS-SWCAN).
-
-The **OVMS base component** is a small and inexpensive hardware module that connects to the vehicle **OBD2** 
-port. The standard kit includes a 3G modem to provide **GSM** connectivity and **GPS**. The US kit has been
-**FCC certified**, the EU kit **CE certified**.
-
-The module provides a **built-in Web App** user interface and remote control via native cellphone Apps 
-available for **Android** and **iOS**. It integrates into home/process automation systems via **MQTT** and 
-provides data logging to SD card and to a server.
-
-
-## Vehicle Support
-
-- _Native Integration_
-  - Chevrolet Volt / Opel Ampera
-  - Chevrolet Bolt EV / Opel Ampera-e
-  - [BMW i3 / i3s](https://docs.openvehicles.com/en/latest/components/vehicle_bmwi3/docs/index.html)
-  - [Mini Cooper SE](https://docs.openvehicles.com/en/latest/components/vehicle_minise/docs/index.html)
-  - [Fiat 500e](https://docs.openvehicles.com/en/latest/components/vehicle_fiat500/docs/index.html)
-  - [Hyundai Ioniq vFL](https://docs.openvehicles.com/en/latest/components/vehicle_hyundai_ioniqvfl/docs/index.html)
-  - [Hyundai Ioniq 5](https://docs.openvehicles.com/en/latest/components/vehicle_hyundai_ioniq5/docs/index.html)
-  - [Jaguar Ipace](https://docs.openvehicles.com/en/latest/components/vehicle_jaguaripace/docs/index.html)
-  - [Kia e-Niro / Hyundai Kona / Hyundai Ioniq FL](https://docs.openvehicles.com/en/latest/components/vehicle_kianiroev/docs/index.html)
-  - [Kia Soul EV](https://docs.openvehicles.com/en/latest/components/vehicle_kiasoulev/docs/index.html)
-  - [Maxus eDeliver 3](https://docs.openvehicles.com/en/latest/components/vehicle_maxus_edeliver3/docs/index.html)
-  - [Mercedes-Benz B250E](https://docs.openvehicles.com/en/latest/components/vehicle_mercedesb250e/docs/index.html)
-  - [MG ZS EV](https://docs.openvehicles.com/en/latest/components/vehicle_mgev/docs/index.html)
-  - [Mitsubishi Trio (i-MiEV et al)](https://docs.openvehicles.com/en/latest/components/vehicle_mitsubishi/docs/index.html)
-  - [Nissan Leaf / e-NV200](https://docs.openvehicles.com/en/latest/components/vehicle_nissanleaf/docs/index.html)
-  - [Renault Twizy](https://docs.openvehicles.com/en/latest/components/vehicle_renaulttwizy/docs/index.html)
-  - [Renault Zoe / Kangoo](https://docs.openvehicles.com/en/latest/components/vehicle_renaultzoe/docs/index.html)
-  - [Renault Zoe Phase 2](https://docs.openvehicles.com/en/latest/components/vehicle_renaultzoe_ph2_obd/docs/index.html)
-  - [Smart ED Gen.3](https://docs.openvehicles.com/en/latest/components/vehicle_smarted/docs/index.html)
-  - [Smart ED/EQ Gen.4 (453)](https://docs.openvehicles.com/en/latest/components/vehicle_smarteq/docs/index.html)
-  - [Tesla Model S](https://docs.openvehicles.com/en/latest/components/vehicle_teslamodels/docs/index.html)
-  - [Tesla Roadster](https://docs.openvehicles.com/en/latest/components/vehicle_teslaroadster/docs/index.html)
-  - Think City
-  - [Toyota RAV4 EV](https://docs.openvehicles.com/en/latest/components/vehicle_toyotarav4ev/docs/index.html)
-  - [VW e-Up](https://docs.openvehicles.com/en/latest/components/vehicle_vweup/docs/index.html)
-- _General Support_
-  - [DBC File Based](https://docs.openvehicles.com/en/latest/components/vehicle_dbc/docs/index.html)
-  - [GPS Tracking](https://docs.openvehicles.com/en/latest/components/vehicle_track/docs/index.html)
-  - [OBD-II Standard](https://docs.openvehicles.com/en/latest/components/vehicle_obdii/docs/index.html)
-  - Zeva BMS
-
-
-## Links
-
-- _User Resources_
-  - _User and Developer Guides: (hint: version selection in left menu at the bottom)_
-    - [Stable release (OTA version "main")](https://docs.openvehicles.com/en/stable/)
-    - [Latest nightly build (OTA version "edge")](https://docs.openvehicles.com/en/latest/)
-  - [User Support Forum](https://www.openvehicles.com/forum)
-  - [Android App](https://play.google.com/store/apps/details?id=com.openvehicles.OVMS&hl=en_US)
-  - [iOS App](https://apps.apple.com/us/app/open-vehicles/id490098531)
-- _Distributors_
-  - [FastTech (global)](https://www.fasttech.com/search?ovms)
-  - [Medlock & Sons (North America)](https://medlockandsons.com/product/ovms-v3/)
-  - [OpenEnergyMonitor (UK/Europe)](https://shop.openenergymonitor.com/ovms/)
-- _Servers_
-  - [Asia-Pacific](https://www.openvehicles.com/)
-  - [Germany/Europe](https://dexters-web.de/)
-- _Developers_
-  - [Developer Guide](https://docs.google.com/document/d/1q5M9Lb5jzQhJzPMnkMKwy4Es5YK12ACQejX_NWEixr0)
-  - [Developer Mailing List & Archive](http://lists.openvehicles.com/mailman/listinfo/ovmsdev)
-  - [Server Source](https://github.com/openvehicles/Open-Vehicle-Server)
-  - [Android App Source](https://github.com/openvehicles/Open-Vehicle-Android)
-  - [iOS App Source](https://github.com/openvehicles/Open-Vehicle-iOS)
-
-
-## Hardware
-
-![OVMS3 module](docs/source/userguide/slide-image-2.jpg)
-
-- [Module Schematics and PCB Layouts](https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3/tree/master/vehicle/hardware)  
-
-- **Base Module (v3.0-3.3)**
-  - Black injection-moulded plastic enclosure, approximately 99x73x29 mm excl. plugs
-  - ESP32 WROVER processor (16MB flash, 4MB SPI RAM, 520KB SRAM, dual core 160/240MHz Xtensa LX6 processor)
-  - WIFI 802.11 b/g/n
-  - Bluetooth v4.2 BR/EDR and BLE
-  - 3x CAN buses
-  - 1x Micro USB connector (for flash download and serial console)
-  - 1x Micro SD card slot
-  - 1x Internal expansion slot
-  - 8x EGPIO, 2x GPIO
-  - 1x GSM antenna connector
-  - 1x GPS antenna connector
-  - 1x DB9 vehicle connector
-  - 1x DB26 expansion connector
-- **Modem Module v3.0-3.2**
-  - US edition is SIM5360A (Dual-Band UMTS/HSPA+ 850/1900MHz, Quad-Band GSM/GPRS/EDGE 850/900/1800/1900MHz)
-  - EU edition is SIM5360J(E) (Dual-Band UMTS/HSPA+ 900/2100MHz, Quad-Band GSM/GPRS/EDGE 850/900/1800/1900MHz)
-  - 3G (EV-DO/HSPA+) dual band modem
-  - Includes 2G (GSM/GPRS) and 2.5G (EDGE) quad band
-  - GPS/GNSS
-  - Nano (4FF) SIM slot
-  - HOLOGRAM.IO nano sim included (can be exchanged if necessary)
-- **Modem Module v3.3**
-  - World edition: SIM7600G (Multi-Band LTE-FDD/LTE-TDD/HSPA+ and GSM/GPRS/EDGE)
-  - 4G (LTE-FDD/LTE-TDD) multi band modem
-  - Includes 3G (EV-DO/HSPA+), 2G (GSM/GPRS) and 2.5G (EDGE) quad band
-  - GPS/GNSS
-  - Nano (4FF) SIM slot
-  - HOLOGRAM.IO nano sim included (can be exchanged if necessary)
-
-
-### Extensions
-
-The external DB26 DIAG connector provides access to the three CAN buses and offers some free extension ports. 
-The internal PCB expansion connector allows stacked additions of further modules and serves for routing GPIO 
-ports to the external DIAG connector. See schematics for details.
-
-A very nice first extension module has been developed by Marko Juhanne: 
-[OVMS-SWCAN](https://github.com/mjuhanne/OVMS-SWCAN)
-
-If you plan on developing a hardware extension or just want to do some custom adaptations, have a look at our 
-prototyping PCB kit. It's available in packs of 3 PCBs and includes headers and mounting material:
-
-![OVMS-tailored prototyping PCB](docs/source/userguide/prototyping-pcb.jpg)
-
-If the kit isn't available at the distributors, please contact Mark Webb-Johnson <mark@webb-johnson.net>.
-
-
-## Development and Contributions
-
-**New developers are very welcome on any part of the system, and we will gladly provide any help needed to
-get started.**
-
-The purpose of this project is to get the community of vehicle hackers and enthusiasts to be able to expand 
-the project. We can't do it all, and there is so much to do. What we are doing is providing an affordable and 
-flexible base that the community can work on and extend.
-
-Everything is open, and APIs are public. Other car modules can talk to the server, and other Apps can show the 
-status and control the car. This is a foundation that others hopefully will interface to and and build upon.
-
-**If you'd like to contribute, please accept our code of conduct:**
-
-- Introduce yourself on the developer mailing list
-- Be kind & polite
-- Understand the framework concepts
-- Ask if you need help
-- Present your plans if in doubt
-- Write decent code
-- If you extend modules, stick to their code style
-- Write brief but descriptive commit comments
-- Add user level descriptions to the change history
-- Provide documentation in the user guide
-- Use pull requests to submit your code for inclusion
-
-**A note on pull requests:**
-
-Pull requests shall focus on one specific issue / feature / vehicle at a time and shall only mix 
-vehicle specific changes with framework changes if they depend on each other. If changes are not 
-or only loosely related, split them into multiple PRs (just as you would do with commits).
-
-Usage hint: create a branch for each pull request, include only those commits in that branch (by 
-cherry-picking if necessary) that shall be included in the pull request. That way you can push 
-further commits to that branch, Github will automatically add them to an open pull request.
-
-
-## Donations
-
-The OVMS is a non-profit community project. Hardware production and service can normally be financed by sales, 
-but some things (e.g. prototype development and certifications) need extra money. To help the project, you can 
-make a donation on the OVMS website: https://www.openvehicles.com/forum
-
-Please also consider supporting the vehicle developers directly. Check out their web sites and support
-addresses for their respective donation channels.
-
-**Thank you!**
-
-
-## License
-
-The project includes some third party libraries and components to which their respective licenses
-apply, see component sources for details.
-
-The project itself is published under the MIT license:
-
-Copyright (c) 2011-2020 Open Vehicles
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Software which uses other licenses will be annotated appropriately.
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放式车辆监控系统 3 (OVMS3)</font></font></h1><a id="user-content-open-vehicle-monitoring-system-3-ovms3" class="anchor" aria-label="永久链接：开放式车辆监控系统 3 (OVMS3)" href="#open-vehicle-monitoring-system-3-ovms3"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/openvehicles/Open-Vehicle-Monitoring-System-3/blob/master/docs/source/userguide/ovms-intro.jpg"><img src="/openvehicles/Open-Vehicle-Monitoring-System-3/raw/master/docs/source/userguide/ovms-intro.jpg" alt="OVMS3模块" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">介绍</font></font></h2><a id="user-content-introduction" class="anchor" aria-label="永久链接：简介" href="#introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVMS是一个</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全开源的</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">车辆远程监控、诊断和控制系统。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该系统提供对车辆指标的</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实时监控</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，例如充电状态、温度、轮胎压力和诊断故障状况。</font><font style="vertical-align: inherit;">它会</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提醒</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您有关严重情况和事件，例如充电中止、电池故障或潜在的盗窃。</font><font style="vertical-align: inherit;">根据车辆集成，它允许您</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">充电过程、气候控制、发动机调整参数等。</font><font style="vertical-align: inherit;">OVMS 开发人员都是热心人士，他们努力提供</font><font style="vertical-align: inherit;">尽可能详细的车辆内部</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">信息。</font></font></strong><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虽然现在大多数新车都配备了某种远程控制系统，但很少有能够提供深入洞察的系统，有些无法在所有地区使用，而且没有一个可以让您</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制您的个人数据</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">OVMS 填补了这一空白，并且还使您能够将所有这些功能添加到任何类型的现有车辆中。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVMS 还可用于</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">车队监控</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它使车队管理者不仅可以跟踪车辆位置，还可以监控车辆的生命体征、远程检查故障情况、为用户提供自动预热等服务，并在滥用情况下采取主动控制。</font><font style="vertical-align: inherit;">由于该系统是开源的且完全可编写脚本，因此可以轻松集成自定义访问和控制系统。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员和技术人员</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来说，OVMS 包括一系列 CAN 工具，包括多种记录格式、可配置的 OBD2 转换器、DBC 解码器、逆向工程工具包和 CANopen 客户端。</font><font style="vertical-align: inherit;">该模块提供 SSH 访问和 WebSocket 流式传输，并且可以通过 TCP 流式传输和注入 CAN 帧。</font><font style="vertical-align: inherit;">模块和 Web 前端都可以通过插件进行定制。</font><font style="vertical-align: inherit;">该模块具有三个内置 CAN 总线，</font></font><a href="https://github.com/mjuhanne/OVMS-SWCAN"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并可扩展第四个总线</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVMS 基础组件</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font><font style="vertical-align: inherit;">一个小型且廉价的硬件模块，可连接到车辆</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OBD2</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+端口。</font><font style="vertical-align: inherit;">标准套件包括一个 3G 调制解调器，可提供</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GSM</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接和</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPS</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">美国套件已获得
+</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FCC认证</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，欧盟套件</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已获得CE认证</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该模块提供</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内置 Web 应用程序</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户界面，并通过适用于</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Android</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">iOS</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的本机手机应用程序进行远程控制。</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它通过MQTT</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集成到家庭/过程自动化系统中</font><font style="vertical-align: inherit;">，并提供到 SD 卡和服务器的数据记录。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">车辆支持</font></font></h2><a id="user-content-vehicle-support" class="anchor" aria-label="永久链接：车辆支持" href="#vehicle-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原生集成</font></font></em>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">雪佛兰 Volt / 欧宝 Ampera</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">雪佛兰 Bolt EV / 欧宝 Ampera-e</font></font></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_bmwi3/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">宝马 i3 / i3s</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_minise/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">迷你库珀SE</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_fiat500/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">菲亚特500e</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_hyundai_ioniqvfl/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现代 Ioniq vFL</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_hyundai_ioniq5/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现代 Ioniq 5</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_jaguaripace/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捷豹Ipace</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_kianiroev/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">起亚 e-Niro / 现代 Kona / 现代 Ioniq FL</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_kiasoulev/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">起亚秀尔EV</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_maxus_edeliver3/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上汽大通eDeliver 3</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_mercedesb250e/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">梅赛德斯-奔驰 B250E</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_mgev/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">名爵ZS电动车</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_mitsubishi/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">三菱三重奏（i-MiEV 等）</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_nissanleaf/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日产聆风 / e-NV200</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_renaulttwizy/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">雷诺特维兹</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_renaultzoe/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">雷诺佐伊 / Kangoo</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_renaultzoe_ph2_obd/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">雷诺佐伊二期</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_smarted/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">智能 ED Gen.3</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_smarteq/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">智能 ED/EQ Gen.4 (453)</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_teslamodels/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特斯拉 Model S</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_teslaroadster/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特斯拉跑车</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">思考城市</font></font></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_toyotarav4ev/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">丰田 RAV4 电动车</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_vweup/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大众 e-Up</font></font></a></li>
+</ul>
+</li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一般支持</font></font></em>
+<ul dir="auto">
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_dbc/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基于 DBC 文件</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_track/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPS追踪</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/components/vehicle_obdii/docs/index.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OBD-II标准</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泽瓦BMS</font></font></li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链接</font></font></h2><a id="user-content-links" class="anchor" aria-label="永久链接： 链接" href="#links"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户资源</font></font></em>
+<ul dir="auto">
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户和开发人员指南：（提示：底部左侧菜单中的版本选择）</font></font></em>
+<ul dir="auto">
+<li><a href="https://docs.openvehicles.com/en/stable/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">稳定版本（OTA 版本“main”）</font></font></a></li>
+<li><a href="https://docs.openvehicles.com/en/latest/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最新的夜间构建（OTA 版本“edge”）</font></font></a></li>
+</ul>
+</li>
+<li><a href="https://www.openvehicles.com/forum" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户支持论坛</font></font></a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.openvehicles.OVMS&amp;hl=en_US" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安卓应用程序</font></font></a></li>
+<li><a href="https://apps.apple.com/us/app/open-vehicles/id490098531" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">iOS应用程序</font></font></a></li>
+</ul>
+</li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经销商</font></font></em>
+<ul dir="auto">
+<li><a href="https://www.fasttech.com/search?ovms" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FastTech（全球）</font></font></a></li>
+<li><a href="https://medlockandsons.com/product/ovms-v3/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Medlock &amp; Sons（北美）</font></font></a></li>
+<li><a href="https://shop.openenergymonitor.com/ovms/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenEnergyMonitor（英国/欧洲）</font></font></a></li>
+</ul>
+</li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务器</font></font></em>
+<ul dir="auto">
+<li><a href="https://www.openvehicles.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">亚太</font></font></a></li>
+<li><a href="https://dexters-web.de/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">德国/欧洲</font></font></a></li>
+</ul>
+</li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发商</font></font></em>
+<ul dir="auto">
+<li><a href="https://docs.google.com/document/d/1q5M9Lb5jzQhJzPMnkMKwy4Es5YK12ACQejX_NWEixr0" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发者指南</font></font></a></li>
+<li><a href="http://lists.openvehicles.com/mailman/listinfo/ovmsdev" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发者邮件列表和存档</font></font></a></li>
+<li><a href="https://github.com/openvehicles/Open-Vehicle-Server"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务器源</font></font></a></li>
+<li><a href="https://github.com/openvehicles/Open-Vehicle-Android"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安卓应用程序源</font></font></a></li>
+<li><a href="https://github.com/openvehicles/Open-Vehicle-iOS"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">iOS应用程序源</font></font></a></li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硬件</font></font></h2><a id="user-content-hardware" class="anchor" aria-label="永久链接：硬件" href="#hardware"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/openvehicles/Open-Vehicle-Monitoring-System-3/blob/master/docs/source/userguide/slide-image-2.jpg"><img src="/openvehicles/Open-Vehicle-Monitoring-System-3/raw/master/docs/source/userguide/slide-image-2.jpg" alt="OVMS3模块" style="max-width: 100%;"></a></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><a href="https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3/tree/master/vehicle/hardware"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模块原理图和 PCB 布局</font></font></a></p>
+</li>
+<li>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本模块 (v3.0-3.3)</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">黑色注塑塑料外壳，约 99x73x29 毫米（不含）。</font><font style="vertical-align: inherit;">插头</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ESP32 WROVER 处理器（16MB 闪存、4MB SPI RAM、520KB SRAM、双核 160/240MHz Xtensa LX6 处理器）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无线网络 802.11 b/g/n</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">蓝牙 v4.2 BR/EDR 和 BLE</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3x CAN 总线</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x Micro USB 连接器（用于闪存下载和串行控制台）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1 个微型 SD 卡插槽</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x 内部扩展槽</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">8 个 EGPIO、2 个 GPIO</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x GSM 天线连接器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x GPS 天线连接器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x DB9 车辆连接器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1x DB26 扩展连接器</font></font></li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调制解调器模块 v3.0-3.2</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">美国版为SIM5360A（双频UMTS/HSPA+ 850/1900MHz，四频GSM/GPRS/EDGE 850/900/1800/1900MHz）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欧盟版为SIM5360J(E)（双频UMTS/HSPA+ 900/2100MHz，四频GSM/GPRS/EDGE 850/900/1800/1900MHz）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3G (EV-DO/HSPA+) 双频调制解调器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括 2G (GSM/GPRS) 和 2.5G (EDGE) 四频</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全球定位系统/全球导航卫星系统</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nano (4FF) SIM 插槽</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含 HOLOGRAM.IO nano sim（如有需要可更换）</font></font></li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调制解调器模块 v3.3</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全球版：SIM7600G（多频段 LTE-FDD/LTE-TDD/HSPA+ 和 GSM/GPRS/EDGE）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4G (LTE-FDD/LTE-TDD) 多频段调制解调器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括 3G (EV-DO/HSPA+)、2G (GSM/GPRS) 和 2.5G (EDGE) 四频</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全球定位系统/全球导航卫星系统</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nano (4FF) SIM 插槽</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含 HOLOGRAM.IO nano sim（如有需要可更换）</font></font></li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></h3><a id="user-content-extensions" class="anchor" aria-label="永久链接：扩展" href="#extensions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">外部 DB26 DIAG 连接器提供对三个 CAN 总线的访问，并提供一些免费的扩展端口。</font><font style="vertical-align: inherit;">内部 PCB 扩展连接器允许堆叠添加更多模块，并用于将 GPIO 端口路由到外部 DIAG 连接器。</font><font style="vertical-align: inherit;">详细信息请参见原理图。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Marko Juhanne 开发了第一个非常好的扩展模块：
+ </font></font><a href="https://github.com/mjuhanne/OVMS-SWCAN"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVMS-SWCAN</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您计划开发硬件扩展或只想进行一些自定义调整，请查看我们的原型 PCB 套件。</font><font style="vertical-align: inherit;">它以 3 个 PCB 为一包提供，包括接头和安装材料：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/openvehicles/Open-Vehicle-Monitoring-System-3/blob/master/docs/source/userguide/prototyping-pcb.jpg"><img src="/openvehicles/Open-Vehicle-Monitoring-System-3/raw/master/docs/source/userguide/prototyping-pcb.jpg" alt="OVMS 定制的原型 PCB" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果经销商处没有该套件，请联系 Mark Webb-Johnson </font></font><a href="mailto:mark@webb-johnson.net"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mark@webb-johnson.net</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发展与贡献</font></font></h2><a id="user-content-development-and-contributions" class="anchor" aria-label="永久链接：发展与贡献" href="#development-and-contributions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">系统的任何部分都非常欢迎新开发人员，我们将很乐意提供入门所需的任何帮助。</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目的目的是让汽车黑客和爱好者社区能够扩展该项目。</font><font style="vertical-align: inherit;">我们无法完成所有事情，而且还有很多事情要做。</font><font style="vertical-align: inherit;">我们正在做的是提供一个负担得起的、灵活的基础，供社区工作和扩展。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一切都是开放的，API 也是公开的。</font><font style="vertical-align: inherit;">其他汽车模块可以与服务器通信，其他应用程序可以显示状态并控制汽车。</font><font style="vertical-align: inherit;">这是一个基础，其他人希望能够与之对接并在此基础上进行构建。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想做出贡献，请接受我们的行为准则：</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在开发者邮件列表中介绍自己</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保持友善和礼貌</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解框架概念</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">询问您是否需要帮助</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果有疑问，请提出您的计划</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">写出像样的代码</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您扩展模块，请坚持其代码风格</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编写简短但描述性的提交评论</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将用户级别描述添加到更改历史记录中</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在用户指南中提供文档</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用拉取请求提交代码以供包含</font></font></li>
+</ul>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于拉取请求的注释：</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">拉取请求应一次集中于一个特定问题/功能/车辆，并且仅将特定于车辆的更改与框架更改（如果它们相互依赖）混合在一起。</font><font style="vertical-align: inherit;">如果更改不相关或仅松散相关，请将它们拆分为多个 PR（就像处理提交一样）。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用提示：为每个拉取请求创建一个分支，仅包含该分支中应包含在拉取请求中的提交（如有必要，通过选择性挑选）。</font><font style="vertical-align: inherit;">这样你就可以将进一步的提交推送到该分支，Github 会自动将它们添加到开放的拉取请求中。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捐款</font></font></h2><a id="user-content-donations" class="anchor" aria-label="永久链接：捐款" href="#donations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVMS 是一个非盈利社区项目。</font><font style="vertical-align: inherit;">硬件生产和服务通常可以通过销售来筹集资金，但有些事情（例如原型开发和认证）需要额外的资金。</font><font style="vertical-align: inherit;">为了帮助该项目，您可以在 OVMS 网站上捐款： https: </font></font><a href="https://www.openvehicles.com/forum" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">//www.openvehicles.com/forum</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">还请考虑直接支持车辆开发商。</font><font style="vertical-align: inherit;">查看他们的网站和各自捐赠渠道的支持地址。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">谢谢你！</font></font></strong></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目包括一些第三方库和组件，它们各自的许可证适用，有关详细信息，请参阅组件源。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目本身是在 MIT 许可下发布的：</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有 (c) 2011-2020 开放车辆</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特此免费授予获得本软件和相关文档文件（“软件”）副本的任何人不受限制地使用本软件，包括但不限于使用、复制、修改、合并的权利、发布、分发、再许可和/或销售软件的副本，并允许向其提供软件的人员这样做，但须满足以下条件：</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上述版权声明和本许可声明应包含在本软件的所有副本或主要部分中。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本软件按“原样”提供，不提供任何明示或暗示的保证，包括但不限于适销性、特定用途的适用性和不侵权的保证。</font><font style="vertical-align: inherit;">在任何情况下，作者或版权持有者均不对因本软件或本软件中的使用或其他交易而产生或与之相关的任何索赔、损害或其他责任负责，无论是合同、侵权行为还是其他行为。软件。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用其他许可证的软件将被适当注释。</font></font></p>
+</article></div>
